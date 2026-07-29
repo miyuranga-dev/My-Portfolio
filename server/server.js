@@ -1,12 +1,11 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 dotenv.config();
 
 const app = express();
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(
   cors({
@@ -18,6 +17,14 @@ app.use(
   })
 );
 app.use(express.json());
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 app.get("/", (req, res) => {
   res.json({
@@ -37,10 +44,8 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
-    const { data, error } = await resend.emails.send({
-      // Must be a verified domain in Resend, or use their default
-      // onboarding@resend.dev sender until you verify your own domain.
-      from: "Portfolio Contact <onboarding@resend.dev>",
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
       subject: subject || "Portfolio Inquiry",
@@ -362,20 +367,12 @@ font-weight:bold;
 `,
     });
 
-    if (error) {
-      console.error("❌ Resend Error:", error);
-      return res.status(500).json({
-        success: false,
-        message: "Email failed to send.",
-      });
-    }
-
     res.json({
       success: true,
       message: "Message sent successfully.",
     });
   } catch (err) {
-    console.error("❌ Unexpected Error:", err);
+    console.error(err);
 
     res.status(500).json({
       success: false,
