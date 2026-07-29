@@ -8,12 +8,26 @@ dotenv.config();
 const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
+console.log("✅ Allowed CORS origins:", allowedOrigins);
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      process.env.CLIENT_URL,
-    ],
+    origin: (origin, callback) => {
+      // allow requests with no origin (curl, server-to-server, Render health checks)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      console.warn(`❌ Blocked CORS request from origin: ${origin}`);
+      return callback(new Error("Not allowed by CORS"));
+    },
     methods: ["GET", "POST"],
   })
 );
@@ -26,7 +40,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("api/contact", async (req, res) => {
+app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, mobile, subject, message } = req.body;
 
