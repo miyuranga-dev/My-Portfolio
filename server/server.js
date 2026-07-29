@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/api/contact", async (req, res) => {
+app.post("api/contact", async (req, res) => {
   try {
     const { name, email, mobile, subject, message } = req.body;
 
