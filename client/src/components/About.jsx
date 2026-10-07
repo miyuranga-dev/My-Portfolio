@@ -5,12 +5,12 @@ import { Award, Globe, CheckCircle2, UserCheck, Sparkles, Terminal } from 'lucid
 const stats = [
   {
     label: "Projects Completed",
-    value: 20,
+    value: 50,
     suffix: "+"
   },
   {
     label: "Real Client Projects",
-    value: 5,
+    value: 10,
     suffix: "+"
   },
   {
@@ -86,28 +86,28 @@ function ProfileCard() {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 1000 }}
-      className="relative w-full max-w-sm mx-auto lg:max-w-none group mb-8"
+      className="relative w-full max-w-sm mx-auto mb-8 lg:max-w-none group"
     >
       {/* Background Glowing Aura Ring */}
       <div className="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-400 rounded-3xl blur-xl opacity-40 group-hover:opacity-80 transition duration-700 animate-pulse-glow" />
 
       {/* Image Container Card */}
       <div 
-        className="relative rounded-3xl bg-neutral-900/90 border border-white/15 p-2 overflow-hidden shadow-2xl backdrop-blur-md"
+        className="relative p-2 overflow-hidden border shadow-2xl rounded-3xl bg-neutral-900/90 border-white/15 backdrop-blur-md"
         style={{ transform: "translateZ(30px)" }}
       >
         <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-neutral-950 border border-white/10">
           <img 
             src="/me.png" 
             alt="Prabodana Miyuranga Balasooriya" 
-            className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+            className="object-cover object-top w-full h-full transition-all duration-700 ease-out filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105"
           />
 
           {/* Shimmer gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
+          <div className="absolute inset-0 transition-opacity duration-500 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-80 group-hover:opacity-40" />
           
           {/* Top Pill Tag */}
-          <div className="absolute top-3 left-3 z-10">
+          <div className="absolute z-10 top-3 left-3">
             <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-emerald-500/40 text-emerald-300 text-[11px] font-mono flex items-center gap-1.5">
               <Sparkles size={12} className="text-emerald-400" /> Software Engineer
             </span>
@@ -115,16 +115,16 @@ function ProfileCard() {
 
           {/* Floating Glassmorphic Status Badge */}
           <motion.div 
-            className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-neutral-950/80 border border-white/15 backdrop-blur-md flex items-center justify-between"
+            className="absolute flex items-center justify-between p-3 border bottom-3 left-3 right-3 rounded-xl bg-neutral-950/80 border-white/15 backdrop-blur-md"
             animate={{ y: [0, -4, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
           >
             <div className="flex items-center gap-2.5">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-emerald-400" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
-              <span className="font-mono text-xs text-white font-medium">Prabodana Miyuranga</span>
+              <span className="font-mono text-xs font-medium text-white">Prabodana Miyuranga</span>
             </div>
             <span className="font-mono text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
               MERN Stack
@@ -138,11 +138,11 @@ function ProfileCard() {
 
 export default function About() {
   return (
-    <section id="about" className="relative z-10 py-28 px-6 border-t border-white/5 bg-neutral-950/60">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <section id="about" className="relative z-10 px-6 border-t py-28 border-white/5 bg-neutral-950/60">
+      <div className="grid items-start max-w-6xl grid-cols-1 gap-12 mx-auto lg:grid-cols-12">
         
         {/* Left Column: Image Card */}
-        <div className="lg:col-span-5 flex flex-col items-center">
+        <div className="flex flex-col items-center lg:col-span-5">
           <ProfileCard />
         </div>
         
@@ -156,16 +156,16 @@ export default function About() {
             className="space-y-8"
           >
             <div>
-              <span className="text-emerald-400 font-mono text-xs uppercase tracking-widest block mb-2">Engineering Background</span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4">
+              <span className="block mb-2 font-mono text-xs tracking-widest uppercase text-emerald-400">Engineering Background</span>
+              <h2 className="mb-4 text-4xl font-bold tracking-tight text-white font-display md:text-5xl lg:text-6xl">
                 About Me
               </h2>
-              <div className="h-1 bg-emerald-500 rounded-full w-16 mb-6" />
+              <div className="w-16 h-1 mb-6 rounded-full bg-emerald-500" />
             </div>
 
-            <div className="space-y-5 text-base sm:text-lg text-neutral-300 font-sans leading-relaxed">
+            <div className="space-y-5 font-sans text-base leading-relaxed sm:text-lg text-neutral-300">
               <p>
-                I am a passionate <strong className="text-white font-semibold">Software Engineering Undergraduate</strong> with a Pearson Higher National Diploma in Computing. I specialize in crafting modern, high-performance web applications using the <strong className="text-emerald-400 font-semibold">MERN Stack (MongoDB, Express, React, Node.js)</strong> alongside cutting-edge AI integrations.
+                I am a passionate <strong className="font-semibold text-white">Software Engineering Undergraduate</strong> with a Pearson Higher National Diploma in Computing. I specialize in crafting modern, high-performance web applications using the <strong className="font-semibold text-emerald-400">MERN Stack (MongoDB, Express, React, Node.js)</strong> alongside cutting-edge AI integrations.
               </p>
               <p>
                 Whether building real-world inventory POS applications for local retail, hotel reservation engines with payment integrations, or video-summarizing AI platforms, my objective remains constant: deliver code that is clean, secure, and resilient.
@@ -174,8 +174,8 @@ export default function About() {
 
             {/* Core Competencies Grid */}
             <div className="space-y-3">
-              <h4 className="text-emerald-400 font-mono text-xs uppercase tracking-widest font-semibold">Core Strengths</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <h4 className="font-mono text-xs font-semibold tracking-widest uppercase text-emerald-400">Core Strengths</h4>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {coreStrengths.map((strength, sidx) => (
                   <div key={sidx} className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/5 text-sm text-neutral-200">
                     <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
@@ -186,11 +186,11 @@ export default function About() {
             </div>
             
             {/* KPI Stat Cards */}
-            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-4">
               {stats.map((stat, idx) => (
-                <div key={idx} className="relative p-5 rounded-2xl bg-neutral-900/60 border border-white/10 overflow-hidden group hover:border-emerald-500/40 transition-colors">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500/20 group-hover:bg-emerald-500 transition-colors" />
-                  <div className="text-2xl sm:text-3xl font-display font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors">
+                <div key={idx} className="relative p-5 overflow-hidden transition-colors border rounded-2xl bg-neutral-900/60 border-white/10 group hover:border-emerald-500/40">
+                  <div className="absolute top-0 left-0 w-full h-1 transition-colors bg-emerald-500/20 group-hover:bg-emerald-500" />
+                  <div className="mb-1 text-2xl font-bold text-white transition-colors sm:text-3xl font-display group-hover:text-emerald-400">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider">{stat.label}</div>
@@ -199,20 +199,20 @@ export default function About() {
             </div>
 
             {/* Education Qualification & Spoken Languages */}
-            <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/10">
+            <div className="grid grid-cols-1 gap-4 pt-4 border-t sm:grid-cols-2 border-white/10">
               <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-neutral-900/40 border border-white/5 hover:border-emerald-500/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20 shrink-0 group-hover:scale-105 transition-transform">
+                <div className="flex items-center justify-center w-10 h-10 transition-transform border rounded-xl bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shrink-0 group-hover:scale-105">
                   <Award size={20} />
                 </div>
                 <div>
                   <h4 className="text-[11px] text-emerald-400 font-mono uppercase tracking-widest font-semibold mb-0.5">Highest Qualification</h4>
-                  <p className="text-white font-medium text-sm leading-snug">Higher National Diploma (HND) in Computing</p>
+                  <p className="text-sm font-medium leading-snug text-white">Higher National Diploma (HND) in Computing</p>
                   <p className="text-xs text-neutral-400 font-mono mt-0.5">Pearson • Software Engineering</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-neutral-900/40 border border-white/5 hover:border-emerald-500/30 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20 shrink-0 group-hover:scale-105 transition-transform">
+                <div className="flex items-center justify-center w-10 h-10 transition-transform border rounded-xl bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shrink-0 group-hover:scale-105">
                   <Globe size={20} />
                 </div>
                 <div>

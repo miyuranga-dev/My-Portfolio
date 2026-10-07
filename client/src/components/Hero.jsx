@@ -7,6 +7,7 @@ import {
   SiMongodb,
   SiGooglegemini,
   SiTailwindcss,
+  SiNextdotjs
 } from "react-icons/si";
 import { FaLinkedin, FaEnvelope, FaCheck } from "react-icons/fa";
 import {
@@ -107,17 +108,17 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
         className="mb-6 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.2)]"
       >
         <span className="relative flex h-2.5 w-2.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-emerald-400" />
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
         </span>
-        <span className="font-mono text-xs md:text-sm font-semibold tracking-wide text-emerald-300 uppercase">
+        <span className="font-mono text-xs font-semibold tracking-wide uppercase md:text-sm text-emerald-300">
           Available
         </span>
       </motion.div>
 
       {/* Name Title */}
-      <div className="overflow-hidden mb-4 max-w-5xl">
-        <motion.h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-none tracking-tight">
+      <div className="max-w-5xl mb-4 overflow-hidden">
+        <motion.h1 className="text-4xl font-extrabold leading-none tracking-tight font-display sm:text-6xl md:text-7xl lg:text-8xl">
           {name.split(" ").map((word, idx) => (
             <span
               key={idx}
@@ -148,7 +149,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
       </div>
 
       {/* Typing Role Banner */}
-      <div className="h-10 mb-6 flex items-center justify-center">
+      <div className="flex items-center justify-center h-10 mb-6">
         <span className="font-mono text-xl sm:text-2xl md:text-3xl text-emerald-400 font-semibold drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">
           {displayedText}
           <span className="animate-pulse text-emerald-300">|</span>
@@ -157,7 +158,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
 
       {/* Subtitle Bio */}
       <motion.p
-        className="max-w-2xl text-neutral-300 text-base sm:text-lg md:text-xl font-sans mb-8 leading-relaxed"
+        className="max-w-2xl mb-8 font-sans text-base leading-relaxed text-neutral-300 sm:text-lg md:text-xl"
         initial={{ opacity: 0 }}
         animate={isPreloaderLoading ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
@@ -171,7 +172,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
 
       {/* Tech Stack Strip */}
       <motion.div
-        className="flex flex-wrap items-center justify-center gap-3 mb-10 text-xs font-mono text-neutral-400"
+        className="flex flex-wrap items-center justify-center gap-3 mb-10 font-mono text-xs text-neutral-400"
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.5 }}
@@ -181,6 +182,9 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
         </span>
         <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-emerald-300">
           <SiReact className="text-emerald-400" /> React.js
+        </span>
+        <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-emerald-300">
+           <SiNextdotjs className="text-white" /> Next.js
         </span>
         <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-emerald-300">
           <SiNodedotjs className="text-emerald-500" /> Node.js
@@ -216,7 +220,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
         <a
           href="/cv/Prabodana-Miyuranga-CV.pdf"
           download="Prabodana-Miyuranga-CV.pdf"
-          className="flex items-center gap-2 px-5 py-3 rounded-xl border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 transition-all font-medium text-sm font-sans"
+          className="flex items-center gap-2 px-5 py-3 font-sans text-sm font-medium transition-all border rounded-xl border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10"
         >
           <Download size={18} />
           <span>Download CV</span>
@@ -225,11 +229,11 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
         {/* CLI Terminal Launcher Button */}
         <button
           onClick={onOpenTerminal}
-          className="flex items-center gap-2 px-4 py-3 rounded-xl bg-neutral-900 border border-emerald-500/30 text-emerald-300 hover:border-emerald-400 transition-all text-xs font-mono group"
+          className="flex items-center gap-2 px-4 py-3 font-mono text-xs transition-all border rounded-xl bg-neutral-900 border-emerald-500/30 text-emerald-300 hover:border-emerald-400 group"
         >
           <TerminalIcon
             size={16}
-            className="text-emerald-400 group-hover:rotate-12 transition-transform"
+            className="transition-transform text-emerald-400 group-hover:rotate-12"
           />
           <span>Launch CLI Dev Mode</span>
         </button>
@@ -246,7 +250,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
           href="https://github.com/miyuranga-dev"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-emerald-400 transition-colors p-2 rounded-full hover:bg-white/5"
+          className="p-2 transition-colors rounded-full hover:text-emerald-400 hover:bg-white/5"
           title="GitHub Profile"
         >
           <SiGithub size={24} />
@@ -256,7 +260,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
           href="https://linkedin.com/in/miyuranga-dev"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-emerald-400 transition-colors p-2 rounded-full hover:bg-white/5"
+          className="p-2 transition-colors rounded-full hover:text-emerald-400 hover:bg-white/5"
           title="LinkedIn Profile"
         >
           <FaLinkedin size={24} />
@@ -264,7 +268,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
         </a>
         <a
           href="mailto:miyuranga.dev@gmail.com"
-          className="hover:text-emerald-400 transition-colors p-2 rounded-full hover:bg-white/5"
+          className="p-2 transition-colors rounded-full hover:text-emerald-400 hover:bg-white/5"
           title="Direct Email"
         >
           <FaEnvelope size={24} />
@@ -274,7 +278,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
 
       {/* Scroll Down Indicator */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-neutral-500"
+        className="absolute -translate-x-1/2 bottom-6 left-1/2 text-neutral-500"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.4, duration: 1 }}
@@ -283,7 +287,7 @@ export default function Hero({ onOpenTerminal, isPreloaderLoading }) {
           href="#about"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="flex flex-col items-center text-xs font-mono text-neutral-400 hover:text-emerald-400 transition-colors"
+          className="flex flex-col items-center font-mono text-xs transition-colors text-neutral-400 hover:text-emerald-400"
         >
           <span className="mb-1">EXPLORE</span>
           <ChevronDown size={20} className="text-emerald-500/70" />
