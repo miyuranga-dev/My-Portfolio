@@ -63,8 +63,11 @@ const techIconMap = {
   "React Router": SiReactrouter,
   "Next.js": SiNextdotjs,
   MySQL: SiMysql,
+  MYSQL: SiMysql,
   Prisma: SiPrisma,
   JavaScript: Code2,
+  React: SiReact,
+  'Framer Motion': Sparkles,
 };
 
 /* =========================================================
@@ -103,9 +106,11 @@ const projects = [
     tech: [
       "Next.js",
       "Tailwind CSS",
-      "MySQL",
-      "Prisma",
+      "MongoDB",
       "JavaScript",
+      "Node.js",
+      "Express.js",
+      "JWT",
     ],
 
     image: "/kashyapa.png",
@@ -127,7 +132,7 @@ const projects = [
       },
     ],
   },
-
+  
   {
     title: "Avora Grand Hotel",
     category: "Full-Stack",
@@ -149,6 +154,10 @@ const projects = [
       "Next.js",
       "Tailwind CSS",
       "JavaScript",
+      "MongoDB",
+      "Node.js",
+      "Express.js",
+      "JWT",
       "Vercel",
     ],
 
@@ -171,6 +180,45 @@ const projects = [
       },
     ],
   },
+  {
+    title: "Hotel Lakhiru",
+    category: "Frontend & Motion",
+    year: "2026",
+
+    description:
+      "A modern hotel website focused on creating a premium digital experience through polished visual design, responsive layouts, smooth interactions, and a clear guest-focused user journey.",
+
+    problem:
+      "The project required a stronger digital presentation that could communicate the hotel's atmosphere, services, and value clearly across desktop and mobile devices.",
+
+    solution:
+      "Designed and developed a responsive frontend experience with modern layouts, polished typography, interactive sections, and smooth motion to create a premium hospitality presentation.",
+
+    architecture:
+      "Component-based React frontend with reusable UI sections, responsive Tailwind CSS styling, motion-driven interactions, and Vercel deployment.",
+
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "JavaScript",
+      "Framer Motion",
+      "Vercel",
+    ],
+
+    image: "/lakhiru.png",
+
+    accent: "gold",
+
+    featured: false,
+
+    links: [
+      {
+        type: "Live Preview",
+        url: "https://lakhiru-hotel.vercel.app/",
+        icon: ExternalLink,
+      },
+    ],
+  },
 
   {
     title: "VelPOS — Supermarket POS",
@@ -190,12 +238,11 @@ const projects = [
       "A modular full-stack retail platform with a responsive POS interface, RESTful backend services, persistent product and sales data, role-based access control, and structured inventory workflows.",
 
     tech: [
-      "React.js",
+      "Next.js",
       "Tailwind CSS",
-      "React Router",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
+      "JavaScript",
+      "MySQL",
+      "Prisma",
       "JWT",
     ],
 
@@ -376,7 +423,7 @@ const projects = [
     links: [
       {
         type: "Live Preview",
-        url: "https://vercel.com",
+        url: "https://juice-bar-omega.vercel.app/",
         icon: SiVercel,
       },
       {
@@ -936,7 +983,7 @@ export default function Projects() {
 
             <p className="max-w-2xl mt-6 text-sm leading-7 sm:text-base text-neutral-400">
               A selection of full-stack platforms, AI applications,
-              business systems, and immersive digital experiences
+              business systems, and premium frontend experiences
               engineered with a focus on usability, performance, and
               polished interfaces.
             </p>
@@ -1045,7 +1092,7 @@ export default function Projects() {
         >
           <div>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-neutral-600">
-              07 projects · 2025—2026
+              08 projects · 2025—2026
             </p>
 
             <p className="mt-2 text-sm text-neutral-500">
